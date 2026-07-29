@@ -1,33 +1,22 @@
-# Use an official lightweight Python image
 FROM python:3.11-slim
 
-# Set working directory in container
 WORKDIR /app
 
-# Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PORT=5000
 
-# Install system dependencies required for build tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements first to leverage Docker layer caching
-COPY requirements.txt .
+# Install packages directly
+RUN pip install --no-cache-dir Flask==3.0.2 pandas==2.2.0 openpyxl==3.1.2 gunicorn==21.2.0
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the rest of the application code
 COPY . .
 
-# Ensure upload and output directories exist
 RUN mkdir -p uploads outputs
 
-# Expose the application port
 EXPOSE 5000
 
-# Start Flask app using Gunicorn with a 10-minute timeout for large Excel files
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "--timeout", "600", "app:app"]
