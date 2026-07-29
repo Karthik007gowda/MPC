@@ -1,0 +1,64 @@
+:root {
+    --cyan-primary: #00f2ff;
+    --cyan-dark: #008891;
+    --bg-black: #0b0e14;
+    --card-black: #121824;
+}
+
+body {
+    background-color: var(--bg-black) !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.text-cyan {
+    color: var(--cyan-primary) !important;
+}
+
+.bg-cyan-glow {
+    background-color: var(--cyan-primary) !important;
+    box-shadow: 0 0 10px var(--cyan-primary);
+}
+
+.border-cyan {
+    border-color: var(--cyan-dark) !important;
+}
+
+.cyber-card {
+    background-color: var(--card-black) !important;
+    border: 1px solid var(--cyan-dark);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.15);
+}
+
+.upload-zone {
+    border: 2px dashed var(--cyan-dark);
+    background-color: rgba(0, 242, 255, 0.03);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-zone:hover {
+    background-color: rgba(0, 242, 255, 0.08);
+    border-color: var(--cyan-primary);
+}
+
+.bg-icon {
+    color: var(--cyan-primary);
+}
+
+.btn-cyan {
+    background-color: var(--cyan-primary);
+    color: #000;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-cyan:hover {
+    background-color: #33f5ff;
+    box-shadow: 0 0 15px var(--cyan-primary);
+}
+
+.alert-cyan {
+    background-color: rgba(0, 242, 255, 0.1);
+    border: 1px solid var(--cyan-primary);
+    color: var(--cyan-primary);
+}

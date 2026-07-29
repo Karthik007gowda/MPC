@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIQ FUSION - AutoSync Engine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-dark text-light">
+
+    <div class="container py-5">
+        <!-- Header -->
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-cyan">PROJECT CIQ FUSION</h1>
+            <p class="lead text-secondary">One Process. Seamless Efficiency. Phase 1 Transcompiler.</p>
+            <span class="badge bg-cyan-glow text-dark px-3 py-2 fs-6">MPC CIQ ➔ QG CIQ CONVERTER</span>
+        </div>
+
+        <!-- Converter Card -->
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card cyber-card bg-black border-cyan p-4 shadow-lg">
+                    
+                    <h4 class="text-cyan mb-3">1. Select MPC CIQ Input File</h4>
+                    
+                    <!-- Drag & Drop Upload Zone -->
+                    <div id="drop-zone" class="upload-zone text-center p-5 mb-4 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bg-icon mb-3" viewBox="0 0 16 16">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a1 1 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                        </svg>
+                        <p class="fs-5 mb-1">Drag & drop your MPC CIQ file (.xlsm / .xlsx) here</p>
+                        <p class="text-secondary small">or click to browse from your computer</p>
+                        <input type="file" id="mpc-file-input" accept=".xlsm,.xlsx" class="d-none">
+                    </div>
+
+                    <div id="file-info" class="alert alert-cyan d-none mb-4">
+                        <strong>Selected File:</strong> <span id="file-name"></span>
+                    </div>
+
+                    <!-- Action Button -->
+                    <button id="execute-btn" class="btn btn-cyan btn-lg w-100 fw-bold py-3 disabled">
+                        EXECUTE TRANSCOMPILATION
+                    </button>
+
+                    <!-- Loading Indicator -->
+                    <div id="loading-spinner" class="text-center mt-4 d-none">
+                        <div class="spinner-border text-cyan" role="status"></div>
+                        <p class="mt-2 text-cyan">Transcompiling MPC CIQ to QG CIQ... Please wait.</p>
+                    </div>
+
+                    <!-- Output Download Zone -->
+                    <div id="output-zone" class="mt-4 p-4 rounded bg-dark border-cyan d-none">
+                        <h5 class="text-success mb-2">✓ Execution Complete!</h5>
+                        <p class="mb-3">QG CIQ workbook has been generated with all mapped tabs and issues log.</p>
+                        
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span><strong>Status:</strong> Success</span>
+                            <span class="badge bg-secondary"><span id="issues-count">0</span> Issues Logged</span>
+                        </div>
+
+                        <a id="download-btn" href="#" class="btn btn-success btn-lg w-100 fw-bold">
+                            DOWNLOAD GENERATED QG CIQ
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
